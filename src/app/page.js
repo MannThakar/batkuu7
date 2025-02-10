@@ -66,7 +66,7 @@ export default function Home() {
 
         <Masonry data={data} className="mx-auto" />
       </div>
-      <div className="mt-48 w-11/12 mx-auto flex justify-between mb-20">
+      <div className="mt-10 w-11/12 mx-auto flex justify-between mb-20">
         <PixelTransition
           firstContent={
             <img
