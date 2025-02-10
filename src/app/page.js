@@ -1,101 +1,116 @@
+import Magnet from "@/Animations/Magnet/Magnet";
+import PixelTransition from "@/Animations/PixelTransition/PixelTransition";
+import Masonry from "@/Components/Masonry/Masonry";
+import Stack from "@/Components/Stack/Stack";
+import CountUp from "@/TextAnimations/CountUp/CountUp";
+import SplitText from "@/TextAnimations/SplitText/SplitText";
 import Image from "next/image";
 
+const data = [
+  {
+    id: 1,
+    image: "/picnic/01_picnic.jpg",
+    height: 400,
+  },
+  { id: 2, image: "/picnic/02_picnic.jpg", height: 400 },
+  { id: 3, image: "/picnic/03_picnic.jpg", height: 300 },
+  { id: 4, image: "/picnic/04_picnic.jpg", height: 400 },
+  { id: 5, image: "/picnic/05_picnic.jpg", height: 400 },
+  { id: 6, image: "/picnic/06_picnic.jpg", height: 400 },
+  { id: 7, image: "/picnic/07_picnic.jpg", height: 400 },
+  { id: 8, image: "/picnic/08_picnic.jpg", height: 300 },
+  { id: 9, image: "/picnic/09_picnic.jpg", height: 400 },
+  { id: 10, image: "/picnic/10_picnic.jpg", height: 400 },
+];
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <>
+      <div className="flex justify-center mx-auto">
+        <SplitText
+          text="Hello, Bachuu!!"
+          className="text-[100px] font-semibold text-center text-white mt-20"
+          delay={150}
+          animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
+          animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+          easing="easeOutCubic"
+          threshold={0.2}
+          rootMargin="-50px"
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      </div>
+      <div className="flex justify-between w-11/12 mx-auto mt-40">
+        <Stack
+          randomRotation={true}
+          sensitivity={180}
+          sendToBackOnClick={false}
+          cardDimensions={{ width: 400, height: 600 }}
+        />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+        <p className="text-white w-1/2 text-xl mt-16">
+          I’m so sorry for not being able to reply properly since morning. I got
+          caught up with so much, and I never meant to make you feel ignored or
+          upset. Please don’t think even for a second that it means I don’t love
+          you, because, baby, you are my entire world. You are my sunshine, the
+          light that brightens up my day, my little cutu bachuu who makes
+          everything feel so special and beautiful. I never want to see you sad,
+          my love. Your happiness means everything to me. I love seeing you
+          laugh, smile, and do your cute little gand masti 24/7, just being your
+          adorable and crazy self. That’s what makes my heart so full. No matter
+          how busy I get, always remember that you are always on my mind and in
+          my heart
+        </p>
+      </div>
+      <div className="flex justify-center flex-col mt-32">
+        <h1 className="text-[100px] font-semibold text-center text-white mt-20">
+          Our Best Movements
+        </h1>
+
+        <Masonry data={data} className="mx-auto" />
+      </div>
+      <div className="mt-48 w-11/12 mx-auto flex justify-between mb-20">
+        <PixelTransition
+          firstContent={
+            <img
+              src="/pics/chashmis.jpg"
+              alt="default pixel transition content, a cat!"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          }
+          secondContent={
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "grid",
+                placeItems: "center",
+                backgroundColor: "#111",
+              }}
+            >
+              <p
+                style={{ fontWeight: 900, fontSize: "3rem", color: "#ffffff" }}
+              >
+                I love you
+              </p>
+            </div>
+          }
+          gridSize={12}
+          pixelColor="#ffffff"
+          animationStepDuration={0.4}
+          className="custom-pixel-card"
+        />
+        <div className="flex items-center">
+          <h1 className="text-6xl font-semibold text-center text-white mt-20">
+            That’s much i love you
+          </h1>
+          <CountUp
+            from={0}
+            to={100000000000}
+            separator=","
+            direction="up"
+            duration={20}
+            className="count-up-text text-6xl"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </>
   );
 }
