@@ -1,8 +1,3 @@
-/*
-	jsrepo 1.35.1
-	Installed from https://reactbits.dev/default/
-	11-2-2025
-*/
 "use client";
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
@@ -25,12 +20,21 @@ function PixelTransition({
 
   const [isActive, setIsActive] = useState(false);
 
-  const isTouchDevice =
-    "ontouchstart" in window ||
-    navigator.maxTouchPoints > 0 ||
-    window.matchMedia("(pointer: coarse)").matches;
+  // Lazy initialization for SSR safety
+  const isTouchDevice = useState(() => {
+    if (typeof window !== "undefined") {
+      return (
+        "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia("(pointer: coarse)").matches
+      );
+    }
+    return false;
+  })[0];
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const pixelGridEl = pixelGridRef.current;
     if (!pixelGridEl) return;
 

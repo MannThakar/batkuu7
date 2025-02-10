@@ -1,8 +1,3 @@
-/*
-	jsrepo 1.35.1
-	Installed from https://reactbits.dev/default/
-	10-2-2025
-*/
 "use client";
 import { useState, useEffect, useRef } from "react";
 
@@ -22,6 +17,8 @@ const Magnet = ({
   const magnetRef = useRef(null);
 
   useEffect(() => {
+    if (typeof window === "undefined") return; // Ensure this only runs client-side
+
     if (disabled) {
       setPosition({ x: 0, y: 0 });
       return;
